@@ -3,25 +3,26 @@
 MELY_MGHK = 'aáoóuú'
 MAGAS_MGHK = 'eéiíöőüű'
 
-def main():
-    words = ["ablak", "erkély", "kisvasút", "magas", "mély","hhh"]
+def hangrend(word):
     mely = False
     magas = False
-    for s in words:
-        for ch in s:
-            if ch in MELY_MGHK:
-                mely = True
-            if ch in MAGAS_MGHK:
-                magas = True
-        if mely & magas:
-            print(s, "vegyes")
-        elif mely:
-            print(s, "mely")
-        elif magas:
-            print(s, "magas")
-        else:
-            print(s, "egyik sem")
-        mely, magas = False, False
+    for ch in word:
+        if ch in MELY_MGHK:
+            mely = True
+        if ch in MAGAS_MGHK:
+            magas = True
+    if mely & magas:
+        print(word, "vegyes")
+    elif mely:
+        print(word, "mely")
+    elif magas:
+        print(word, "magas")
+    else:
+        print(word, "egyik sem")
+
+def main():
+    words = ["apa", "erkély", "kisvasút", "magas", "mély","hhh"]
+    [hangrend(s) for s in words]
         
 
 if __name__ == "__main__":
